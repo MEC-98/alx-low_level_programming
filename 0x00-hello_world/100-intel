@@ -1,18 +1,2 @@
 #!/bin/bash
-
-if [ -z "$CFILE" ]
-then
-    echo "Error: CFILE environment variable is not set"
-    exit 1
-fi
-
-if [ ! -f "$CFILE" ]
-then
-    echo "Error: $CFILE does not exist"
-    exit 1
-fi
-
-OUTPUT_FILE="${CFILE%.*}.s"
-
-gcc -S -masm=intel "$CFILE" -o "$OUTPUT_FILE"
-
+gcc -S -masm=intel $CFILE
