@@ -1,11 +1,13 @@
-#include <stdlib.h>
 #include <stdio.h>
 
-void *malloc_checked(unsigned int b) {
-    void *ptr = malloc(b);
-    if (ptr == NULL) {
-        fprintf(stderr, "Error: Failed to allocate memory\n");
-        exit(98);
-    }
-    return ptr;
+int main() {
+    int *array;
+    unsigned int size = 100;
+
+    array = (int *) malloc_checked(size * sizeof(int));
+
+    // use the allocated memory here
+
+    free(array); // remember to free the memory when you're done with it
+    return 0;
 }
