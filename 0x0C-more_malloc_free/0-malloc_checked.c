@@ -1,13 +1,25 @@
 #include <stdio.h>
 
-int main() {
-    int *array;
-    unsigned int size = 100;
+int main(void)
+{
+    char *c;
+    int *i;
+    float *f;
+    double *d;
 
-    array = (int *) malloc_checked(size * sizeof(int));
+    c = (char *) malloc_checked(sizeof(char) * 1024);
+    printf("%p\n", (void *) c);
+    i = (int *) malloc_checked(sizeof(int) * 402);
+    printf("%p\n", (void *) i);
+    f = (float *) malloc_checked(sizeof(float) * 100000000);
+    printf("%p\n", (void *) f);
+    d = (double *) malloc_checked(sizeof(double) * INT_MAX);
+    printf("%p\n", (void *) d);
 
-    // use the allocated memory here
+    free(c);
+    free(i);
+    free(f);
+    free(d);
 
-    free(array); // remember to free the memory when you're done with it
-    return 0;
+    return (0);
 }
